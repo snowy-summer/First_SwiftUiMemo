@@ -14,15 +14,7 @@ struct MainListView: View {
         NavigationView{
             List(store.list)
             {
-                memo in VStack(alignment: .leading) {
-                    Text(memo.content)
-                        .font(.body)
-                        .lineLimit(1)
-                    
-                    Text(memo.insertDate, style: .date)
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                }
+                memo in MemoCell(memo: memo)
         }
             .listStyle(.plain)// 라운드진걸 없애줌
             .navigationTitle("내 메모")
@@ -36,3 +28,4 @@ struct MainListView_Previews: PreviewProvider {
             .environmentObject(MemoStore())
     }
 }
+
