@@ -21,6 +21,7 @@ struct MainListView: View {
                 NavigationLink
                 {
                     DetailView(memo: memo)
+                    
                 }
                 label:
                 {

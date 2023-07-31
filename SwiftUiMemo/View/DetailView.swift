@@ -11,37 +11,62 @@ struct DetailView: View {
     @ObservedObject var memo: Memo
     
     @EnvironmentObject var store: MemoStore
+    
+    @State private var showComposer = false
     var body: some View {
-       VStack
+        NavigationView
         {
-            ScrollView
+            VStack
             {
-                VStack
+                ScrollView
                 {
-                    HStack
+                    VStack
                     {
-                        Text(memo.content)
+                        HStack
+                        {
+                            Text(memo.content)
+                                .padding()
+                            Spacer(minLength: 0)
+                        }
+                        
+                        Text(memo.insertDate, style: .date)
                             .padding()
-                        Spacer(minLength: 0)
+                            .font(.footnote)
+                            .foregroundColor(.secondary)
                     }
-                    
-                    Text(memo.insertDate, style: .date)
-                        .padding()
-                        .font(.footnote)
-                        .foregroundColor(.secondary)
                 }
             }
+            
+            .navigationTitle("메모 보기")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar
+            {
+                ToolbarItemGroup(placement: .bottomBar)
+                {
+                    Button
+                    {
+                        showComposer = true
+                    }
+                label:
+                    {
+                        Image(systemName: "square.and.pencil")
+                    }
+                }
+            }
+            
+            .sheet(isPresented: $showComposer)
+            {
+                ComposeView(memo: memo)
+            }
         }
-        
-        .navigationTitle("메모 보기")
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
-
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(memo: Memo(content: "Hello"))
-            .environmentObject(MemoStore())
-        
+        NavigationView
+        {
+            DetailView(memo: Memo(content: "Hello"))
+                .environmentObject(MemoStore())
+        }
     }
 }
