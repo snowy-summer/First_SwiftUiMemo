@@ -9,7 +9,10 @@ import SwiftUI
 
 struct MainListView: View {
     @EnvironmentObject var store: MemoStore
-   // @EnvironmentObject
+    
+    @State private var showComposer: Bool = false
+    
+   
     var body: some View {
         NavigationView{
             List(store.list)
@@ -18,6 +21,22 @@ struct MainListView: View {
         }
             .listStyle(.plain)// 라운드진걸 없애줌
             .navigationTitle("내 메모")
+            .toolbar
+            {
+                Button
+                {
+                    showComposer = true
+                }
+                label:
+                {
+                 Image(systemName: "plus")
+                }
+            }
+            
+            .sheet(isPresented: $showComposer)
+            {
+                ComposeView()
+            } // showComposer가 true가 되면 composeView를 실행
         }
     }
 }
