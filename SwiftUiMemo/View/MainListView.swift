@@ -15,20 +15,23 @@ struct MainListView: View {
    
     var body: some View {
         NavigationView{
-            List(store.list)
-            {
-                memo in
-                NavigationLink
+            List {
+                ForEach(store.list)
                 {
-                    DetailView(memo: memo)
+                    memo in
+                    NavigationLink
+                    {
+                        DetailView(memo: memo)
+                        
+                    }
+                    label:
+                    {
+                        MemoCell(memo: memo)
+                    }
                     
                 }
-                label:
-                {
-                    MemoCell(memo: memo)
-                }
-                
-        }
+                .onDelete(perform: store.delete)
+            }
             .listStyle(.plain)// 라운드진걸 없애줌
             .navigationTitle("내 메모")
             .toolbar
@@ -37,16 +40,16 @@ struct MainListView: View {
                 {
                     showComposer = true
                 }
-                label:
+            label:
                 {
-                 Image(systemName: "plus")
+                    Image(systemName: "plus")
                 }
             }
             
             .sheet(isPresented: $showComposer)
             {
                 ComposeView()
-            } // showComposer가 true가 되면 composeView를 실행
+            }// showComposer가 true가 되면 composeView를 실행
         }
     }
 }
