@@ -17,6 +17,7 @@
 		6B381D7B2A7790A500AD039B /* MemoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B381D7A2A7790A500AD039B /* MemoStore.swift */; };
 		6B381D7E2A77B36100AD039B /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B381D7D2A77B36100AD039B /* MemoCell.swift */; };
 		6B381D802A77B47200AD039B /* ComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B381D7F2A77B47200AD039B /* ComposeView.swift */; };
+		6B381D822A77BBBD00AD039B /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B381D812A77BBBD00AD039B /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		6B381D7A2A7790A500AD039B /* MemoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoStore.swift; sourceTree = "<group>"; };
 		6B381D7D2A77B36100AD039B /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
 		6B381D7F2A77B47200AD039B /* ComposeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeView.swift; sourceTree = "<group>"; };
+		6B381D812A77BBBD00AD039B /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				6B381D7D2A77B36100AD039B /* MemoCell.swift */,
 				6B381D742A778C0300AD039B /* MainListView.swift */,
 				6B381D7F2A77B47200AD039B /* ComposeView.swift */,
+				6B381D812A77BBBD00AD039B /* DetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B381D7E2A77B36100AD039B /* MemoCell.swift in Sources */,
+				6B381D822A77BBBD00AD039B /* DetailView.swift in Sources */,
 				6B381D612A778B6D00AD039B /* SwiftUiMemoApp.swift in Sources */,
 				6B381D7B2A7790A500AD039B /* MemoStore.swift in Sources */,
 				6B381D752A778C0300AD039B /* MainListView.swift in Sources */,

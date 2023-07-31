@@ -17,7 +17,16 @@ struct MainListView: View {
         NavigationView{
             List(store.list)
             {
-                memo in MemoCell(memo: memo)
+                memo in
+                NavigationLink
+                {
+                    DetailView(memo: memo)
+                }
+                label:
+                {
+                    MemoCell(memo: memo)
+                }
+                
         }
             .listStyle(.plain)// 라운드진걸 없애줌
             .navigationTitle("내 메모")
