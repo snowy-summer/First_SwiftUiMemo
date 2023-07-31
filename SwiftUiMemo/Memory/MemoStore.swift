@@ -1,0 +1,53 @@
+//
+//  MemoStore.swift
+//  SwiftUiMemo
+//
+//  Created by 최승범 on 2023/07/31.
+//
+
+import Foundation
+
+//메모를 저장하는 클래스를 구현
+
+class MemoStore: ObservableObject
+{
+    @Published var list: [Memo]
+    init()
+    {
+        list = [
+            Memo(content: "Hello", insertDate: Date.now),
+            Memo(content: "Awesome", insertDate: Date.now.addingTimeInterval(3600 * -24)),
+            Memo(content: "so good", insertDate: Date.now.addingTimeInterval(3600 * -48)),
+                
+                
+        ]
+    }
+    
+    func insert(memo: String)
+    {
+        list.insert(Memo(content: memo), at: 0)
+        //메모를 작성하면 메모가 가장 최근리스트에 저장이 된다.
+        
+    }
+    func update(memo: Memo?,content: String)
+    {
+        guard let memo = memo else
+        {
+            return
+        }
+        
+        memo.content = content
+    }
+    
+    func delete(memo: Memo)
+    {
+        list.removeAll { $0.id == memo.id }
+    }
+    func delete(set: IndexSet)
+    {
+        for index in set
+        {
+            list.remove(at: index)
+        }
+    }
+}
